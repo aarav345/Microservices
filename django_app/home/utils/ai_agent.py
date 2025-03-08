@@ -1,10 +1,6 @@
-import base64
 from groq import Groq
 
-code_str= "ZGVmIGdldF9wcl9pbmZvKHJlcG9fdXJsLCBwcl9udW1iZXIsIGdpdGh1Yl90\nb2tlbik6CiAgICAiIiIKICAgIEEgZHVtbXkgZnVuY3Rpb24gdGhhdCByZXR1\ncm5zIGR1bW15IGRhdGEKICAgICIiIgogICAgcmV0dXJuIHsKICAgICAgICAn\ndGl0bGUnOiAnRHVtbXkgUFIgdGl0bGUnLAogICAgICAgICdib2R5JzogJ0R1\nbW15IFBSIGJvZHknLAogICAgICAgICdhdXRob3InOiAnRHVtbXkgYXV0aG9y\nJywKICAgICAgICAnbGFiZWxzJzogWydkdW1teS1sYWJlbCddLAogICAgICAg\nICdzdGF0ZSc6ICdvcGVuJwogICAgfQo=\n"
 key = "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"
-
-
 
 
 def analyze_code_with_llm(file_content, file_path):
@@ -43,14 +39,9 @@ def analyze_code_with_llm(file_content, file_path):
                 "content" : prompt
             }
         ],
-        temperature=1,
+        temperature=1
         top_p=1   
     )
 
 
     print(completion.choices[0].message.content)
-
-
-
-analyze_code_with_llm(base64.b64decode(code_str).decode(), "test.py")
-
