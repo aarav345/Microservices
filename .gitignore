@@ -1,0 +1,64 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+.env/
+*.venv
+env/
+*.envrc
+
+# Editor and IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+
+# Logs and runtime files
+logs/
+*.log
+*.out
+*.err
+nohup.out
+
+# Caches
+pip-wheel-metadata/
+*.egg-info/
+dist/
+build/
+
+# Database files
+*.sqlite3
+*.db
+*.sql
+migrations/
+
+# Docker files
+docker-compose.override.yml
+
+# Python dependencies
+requirements.txt
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# FastAPI static/media files (if applicable)
+static/
+media/
+
+# Gunicorn/Pytest temp files
+gunicorn_error.log
+pytest_cache/
+
+# AWS credentials (if applicable)
+.aws/
+
+# Ignore VS Code settings
+.vscode/
+
+# Ignore local environment variables
+.env.local
