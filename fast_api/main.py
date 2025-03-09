@@ -1,6 +1,7 @@
 from fastapi import FastAPI, status
 from pydantic import BaseModel
 from typing import Optional
+import httpx # for async call
 
 app = FastAPI()
 
