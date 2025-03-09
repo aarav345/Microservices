@@ -21,7 +21,8 @@ def task_status_view(request, task_id):
     result = AsyncResult(task_id)
     response = {
         "task_id" : task_id,
-        "status" : result.status   
+        "status" : result.state,
+        "result" : result.result   
     }
     return Response(response)
 

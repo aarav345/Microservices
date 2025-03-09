@@ -1,6 +1,7 @@
 from groq import Groq
 
 key = "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"
+from .prompts import system_prompt
 
 
 def analyze_code_with_llm(file_content, file_path):
@@ -34,6 +35,7 @@ def analyze_code_with_llm(file_content, file_path):
     completion = client.chat.completions.create(
         model="llama3-8b-8192",
         messages= [
+            {"role" : "system", "content" : system_prompt},
             {
                 "role" : "user",
                 "content" : prompt
@@ -43,5 +45,4 @@ def analyze_code_with_llm(file_content, file_path):
         top_p=1   
     )
 
-
-    print(completion.choices[0].message.content)
+    return completion.choices[0].message.content
