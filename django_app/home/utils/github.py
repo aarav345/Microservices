@@ -1,5 +1,7 @@
 import requests
 import base64
+import uuid
+from .ai_agent import analyze_code_with_llm
 
 
 
@@ -39,4 +41,20 @@ def fetch_file_content(repo_url, file_path, github_token):
     return base64.b64decode(content).decode()
 
 
+def analyze_pr(repo_url, pr_number, github_token):
+    task_id = str(uuid.uuid4())
 
+    try:
+        pr_files = fetch_pr_files(repo_url, pr_number, github_token)
+        analysis_results = []
+        for file in pr_files:
+            filename = file['filename']
+            raw_content = fetch_file_content(repo_url, filename, github_token)
+            analysis_result = analyze_code_with_llm(raw_content, filename)
+            analysis_results.append({"results": analysis_result, "file_name": filename})
+
+        return {"task_id": task_id, "results": analysis_results}
+    
+    except Exception as e:
+        print(e)
+        return {"task_id": task_id, "results" : []}

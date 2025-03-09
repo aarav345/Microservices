@@ -39,7 +39,7 @@ def analyze_code_with_llm(file_content, file_path):
                 "content" : prompt
             }
         ],
-        temperature=1
+        temperature=1,
         top_p=1   
     )
 
